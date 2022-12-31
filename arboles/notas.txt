@@ -1,0 +1,47 @@
+- Es una estructura de datos que imita la forma de un arbol --> conjunto de nodos conectados
+- Cada nodo es una estructura de datos que contiene un valor y una referencia a otros nodos
+- Hay varios caminos para ir a cada nodo 
+
+- NODO RAIZ: refiere al primer nodo de un arbol 1) es el unico nodo que no tiene un padre 2) puede o no tener hijos 3) es UNICO
+- NODOS PADRES: son los nodos que tienen al menos 1 hijo (pueden ser varios)
+- NODOS HIJOS: son los nodos que tienen un unico padre (solo tienen 1 padre)
+- NODOS HOJAS: son los nodos que no tienen hijos
+- NODO RAMA: es un nodo que tiene al menos 1 hijo y al menos 1 padre
+
+- GRADO DEL ARBOL: es el numero maximo de hijos que puede tener un nodo
+- NIVELES DEL ARBOL: es el numero de aristas que hay entre el nodo raiz y el nodo mas profundo, la fila en que reside un nodo es su nivel
+
+- Se usa recursividad para recorrer un arbol (es la unica forma de recorrerlo)
+
+ARBOLES BINARIOS
+    - Es un arbol en el que cada nodo puede tener 0, 1 o 2 hijos como maximo
+    - TIPOS:
+        - binario de busqueda (nos vamos a basar en esto en esta cursada)
+        - binario de expresion
+        - binario equilibrado
+        - AVL
+    - Puedo subdividir el arbol en subarbol izquierdo y subarbol derecho
+    - El arbol binario de busqueda es un arbol binario en el que cada nodo tiene un valor y dos hijos, el hijo izquierdo es menor que el padre y el hijo derecho es mayor que el padre
+
+LENGUAJE EN C:
+    - Puede ser usado con arreglos o estructuras
+    - Aqui con estructuras enlazadas con punteros
+        - typedef struct arbol {
+            int dato;
+            struct arbol *izq;
+            struct arbol *der;
+        } treenode;
+
+FORMAS DE RECORRER UN ARBOL BINARIO
+    - EN ORDEN: primero se recorre el subarbol izquiero, se lee su raiz, se recorre el subarbol derecho. --> SE RECORRE DE MENOR A MAYOR, me devuelve el arbol ordenado
+    - PRE ORDEN: primero se lee la raiz, luego el subarbol izquierdo y luego la raiz del subarbol derecho y sus nodos. --> SE RECORRE DESDE LA RAIZ HACIA EL ARBOL IZQUIERDO, LUEGO EL DERECHO
+    - POST ORDEN: primero se visita el subarbol izquierdo, luego el subarbol derecho y luego el nodo, siempre ultima la raiz. --> SE RECORRE DESDE EL ARBOL IZQUIERDO HACIA SU RAIZ, LUEGO EL DERECHO A SU RAIZ, Y POR ULTIMO A LA RAIZ PRINCIPAL DEL ARBOL
+
+
+
+    
+
+
+
+
+

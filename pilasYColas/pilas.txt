@@ -1,0 +1,55 @@
+TEORICO PILAS
+- PILA: Estructura de datos que permite almacenar y recuperar datos
+- El primer elemento es el que apunta a NULL 
+- Cuando cargo un nuevo elemento, va SOBRE el elemento anterior
+- El nuevo nodo apunta a este nodo anterior
+- El elemento que ingresa se pone al principio de la pila 
+- STACK
+- Para eliminar un elemento de la pila, se elimina el primer elemento
+- LIFO  (Last In First Out)
+  - El ultimo en agregarse es el primero en quitarse
+- PUSH y POP 
+  - PUSH: Agregar un elemento a la pila
+  - POP: Eliminar un elemento de la pila
+
+LENGUAJE
+  struct nodo {
+    int numero;
+    struct nodo *sig;
+  };
+
+  struct nodo *superior = NULL;  //El primer nodo, el superior, el primero que entra. ES EL QUE APUNTA A NULL
+
+  //Agregar elemento a la pila
+  void agregar(int numero){
+    struct nodo *nuevoNodo = malloc(sizeof(struct nodo)); //Reservo memoria para el nuevo nodo
+    nuevoNodo->numero = numero; //asigno el datos, guarda el numero que recibimos por parametro
+    nuevoNodo->sig = superior; //superior pasa a ser = a nuevoNodo
+    superior = nuevoNodo;
+  }
+
+  //Eliminar elemento de la pila
+  void eliminarUltimo(){
+    if(superior != NULL){
+      struct nodo *temporal = superior;
+      superior = superior->sig; //cambio el puntero superior al siguiente nodo
+      free(temporal);
+    }
+  }
+
+  //Imprimir pila
+  void imprimir(){
+    struct nodo *temporal = superior;
+    while(temporal != NULL){
+        printf("%d\n", temporal->numero);
+        temporal = temporal->sig;
+    }
+  }
+
+  //pila vacia
+  bool pilaVacia(){
+    return superior == NULL;
+  }
+
+
+

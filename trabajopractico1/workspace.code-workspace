@@ -1,0 +1,44 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../clase3"
+		},
+		{
+			"path": "../ejercicios1"
+		},
+		{
+			"path": "../clase4"
+		},
+		{
+			"path": "../trabajopractico2"
+		},
+		{
+			"path": "../clase5"
+		},
+		{
+			"path": "../clase6"
+		},
+		{
+			"path": "../clase7"
+		},
+		{
+			"path": "../parcial1"
+		},
+		{
+			"path": "../listasParte2"
+		},
+		{
+			"path": "../pilasYColas"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"math.h": "c",
+			"CargarArregloConRecursividad.C": "cpp",
+			"stdlib.h": "c"
+		}
+	}
+}

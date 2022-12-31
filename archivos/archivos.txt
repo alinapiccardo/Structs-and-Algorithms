@@ -1,0 +1,57 @@
+ARCHIVOS
+- Son documentos de texto plano (.txt) que nos permiten almacenar la info por un tiempo indeterminado
+- Menos eficacia, ya que trabaja continuamente sobre la memoria
+- Secuencia de caracteres lineales, hasta que encuentran un \n (salto de linea)
+- Archivos planos y sin formato
+- Conjunto de valores ASCII imprimibles
+
+ARCHIVOS BINARIOS  
+- Mas eficaces en su funcionamiento
+- Almacena datos de todo tipo (arreglos, structs, etc)
+- Los datos se escriben en binario dentro del archivo 
+- Trabajan con un buffer que ayuda al SO a reducir la cantidad de accesos al disco
+- Bytes con cualquier valor del intervalo [0, 255]
+- Los archivos binarios son mas rapidos que los de texto plano
+
+FUNCIONES ESPECIFICAS PARA EL MANEJO DE ARCHIVOS
+Algunos ejemplos: 
+- fopen() : Abre un archivo
+- fclose() : Cierra un archivo (0 si se cierra correctamente, 1 si no) --> muy importante cerrar los archivos para que no se pierda la info
+- fread() : Lee un archivo
+- fwrite() : Escribe en un archivo
+- fseek() : Busca byte espeficicos en el archivo. Posiciona el puntero de lectura/escritura en un archivo
+- feof() : Devuelve true si llega a EOF (End Of File)
+- fcloseall() : Cierra todos los archivos abiertos en la aplicacion
+
+FILE *nombre
+- Es una esstructura cuya definicion depende del compilador, pero en general esta compuesta por:
+    - Un campo con la posicion actual de lectura o escritura
+    - Un buffer para mejorar las prestaciones de acceso al fichero
+    - Algunos campos para uso interno 
+
+struct _iobuf {
+    char *_ptr;
+    int   _cnt;
+    char *_base;
+    char   _flag;
+    char   _file;
+}; 
+typedef struct _iobuf FILE;
+
+FUNCIONES DE ARCHIVOS                      
+FILE *archivo = fopen("nombre_archivo.txt", "r");
+    //MODOS DE ABRIR UN ARCHIVO 
+        "r" : Abre un archivo para solo lectura, el fichero debe existir
+        "w" : Abre un archivo para solo escritura, si no existe lo crea, si existe lo sobreescribe
+        "a" : Abre un archivo para solo escritura, si no existe lo crea, si existe escribe al final del archivo
+        "r+" : Abre un archivo para lectura y escritura, el fichero debe existir
+        "w+" : Abre un archivo para lectura y escritura, si no existe lo crea, si existe lo sobreescribe
+        "a+" : Abre un archivo para lectura y escritura, si no existe lo crea, si existe escribe al final del archivo
+        "t" : Abre un archivo en modo texto (por defecto)
+        "b" : Abre un archivo en modo binario
+
+fprintf(archivo, "Hola mundo"); //Escribe en el archivo Hola mundo
+
+
+
+

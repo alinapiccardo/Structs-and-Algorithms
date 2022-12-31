@@ -1,0 +1,68 @@
+// estructura para crear una lista enlazada
+
+typedef struct lista {
+    int data;
+    struct lista *next; //puntero a la siguiente estructura por eso se llama struct lista
+} nodo;
+
+//declarar funcion para crear una Lista enlazada
+nodo * crearLista(int n);
+
+//declarar funcion para imprimir una Lista enlazada
+void imprimirLista(nodo *head);
+
+int main(){
+
+    int n = 0;
+
+    nodo *HEAD = NULL; //puntero a la cabeza de la lista
+
+    printf("\nIngrese un numero de nodos: ");
+    scanf("%d", &n);
+
+    HEAD = crearLista(n); //llamada a la funcion para crear la lista
+
+    imprimirLista(HEAD); //llamada a la funcion para imprimir
+
+    return 0;
+}
+
+//funcion para crear una Lista enlazada
+nodo * crearLista(int n){
+    int i = 0;
+    nodo *head = NULL; //guarda el address del primer nodo y se devuelve al finalizar la funcion
+    nodo *temp = NULL;
+    nodo *p = NULL; 
+
+    for (i=0; i<n; i++) {
+
+        //create individual isolated node
+        temp = (nodo *)malloc(sizeof(nodo)); //reservar memoria para el nodo
+
+        printf("\nIngrese el valor del nodo %d: ", i+1);
+        scanf("%d", &temp->data); //acceder al campo data del nodo temp
+
+        temp->next = NULL; //el campo next del nodo temp apunta a NULL
+
+        if (head == NULL) { //si la lista esta vacia
+            head = temp; //el primer nodo es el nodo temp
+        } else {
+            p = head; //p apunta al primer nodo
+            while (p->next != NULL) { //mientras el campo next del nodo p no apunte a NULL
+                p = p->next; //p apunta al siguiente nodo
+            }
+            p->next = temp; //el campo next del nodo p apunta al nodo temp
+        }
+    }
+    return head; //devuelve el address del primer nodo
+}
+
+//funcion para imprimir una Lista enlazada
+void imprimirLista(nodo *head){
+    nodo *p = head; //p apunta al primer nodo
+
+    while (p != NULL) { //mientras p no apunte a NULL
+        printf("\t%d-> ", p->data); //imprime el valor del nodo p
+        p = p->next; //p apunta al siguiente nodo
+    }
+}
